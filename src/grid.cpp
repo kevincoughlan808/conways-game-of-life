@@ -1,4 +1,5 @@
 #include "grid.h"
+#include <stdexcept> // Include for std::out_of_range exception
 
 Grid::Grid(int width, int height) 
     // initialize cells_ as a 2d vector of size height_ x width_, all set to false (dead)
