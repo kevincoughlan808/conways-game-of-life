@@ -8,3 +8,15 @@ add_executable(game src/main.cpp src/grid.cpp src/update_system.cpp)
 target_include_directories(game PRIVATE /opt/homebrew/include)
 target_link_directories(game PRIVATE /opt/homebrew/lib)
 target_link_libraries(game sfml-graphics sfml-window sfml-system)
+
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(tests tests/main_test.cpp src/grid.cpp src/update_system.cpp)
+
+target_link_libraries(tests gtest_main)
+target_include_directories(tests PRIVATE src/)
