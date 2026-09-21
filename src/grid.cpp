@@ -5,14 +5,14 @@ Grid::Grid(int width, int height)
     // initialize cells_ as a 2d vector of size height_ x width_, all set to false (dead)
     : width_(width), height_(height), cells_(height, std::vector<bool>(width, false)) {}
 
-bool Grid::getCell(int x, int y) const {
+bool Grid::getCell(int x, int y) const {// Method to get the state of a cell at (x, y)
     // Check if the coordinates are within bounds
     if (x < 0 || x >= width_ || y < 0 || y >= height_) {
         throw std::out_of_range("Coordinates out of bounds");
     }
     return cells_[y][x]; // Return the state of the cell at (x, y)
 }
-void Grid::setCell(int x, int y, bool state) {
+void Grid::setCell(int x, int y, bool state) {// Set the state of the cell at (x, y)
     // Check if the coordinates are within bounds
     if (x < 0 || x >= width_ || y < 0 || y >= height_) {
         throw std::out_of_range("Coordinates out of bounds");
