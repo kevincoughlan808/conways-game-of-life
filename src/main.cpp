@@ -1,6 +1,8 @@
 #include "grid.h"
 #include "update_system.h"
 #include <SFML/Graphics.hpp>
+#include <chrono>
+#include <iostream>
 
 const int GRID_WIDTH = 80;
 const int GRID_HEIGHT = 60;
@@ -12,6 +14,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode({GRID_WIDTH * CELL_SIZE, GRID_HEIGHT * CELL_SIZE}), "Conway's Game of Life");
     window.setFramerateLimit(60); // Set the frame rate limit to 60 FPS
     Grid grid(GRID_WIDTH, GRID_HEIGHT); // Create a grid of specified width and height
+    Grid nextGrid(GRID_WIDTH, GRID_HEIGHT); // Create a second grid for the next state
     //seed some live cells in the grid
     grid.setCell(1, 0, true);
     grid.setCell(2, 1, true);
@@ -21,6 +24,9 @@ int main() {
     bool paused = false; // Variable to track whether the simulation is paused
     sf::Clock clock; // Create a clock to manage the update timing
     bool wasClicked = false; // Variable to track whether the mouse button was clicked in the previous frame
+
+    double runningTotalTime = 0.0; // Variable to accumulate the total elapsed time for updates
+    int updateCounter = 0; // Variable to count the number of updates performed
 
     //Game loop
     while (window.isOpen()) {
@@ -50,7 +56,16 @@ int main() {
         }
         //Update logic
         if (!paused && clock.getElapsedTime().asSeconds() >= 0.5f) { // Update every 0.5 seconds
-            update(grid);
+            std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now(); // Record the start time of the update
+            update(grid, nextGrid);
+            std::swap(grid, nextGrid); // Swap the current grid with the next grid after updating
+            std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now(); // Record the end time of the update
+            std::chrono::duration<double> elapsed = end - start; // Calculate the elapsed time
+            runningTotalTime += elapsed.count();
+            updateCounter++;
+            double averageTime = runningTotalTime / updateCounter;
+            std::cout << "Average elapsed time: " << averageTime << " seconds" << std::endl; // Print the average elapsed time to the console
+
             clock.restart(); // Restart the clock after updating
         }
         window.clear(sf::Color::Black); // Clear the window with black color

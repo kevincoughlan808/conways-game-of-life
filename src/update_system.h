@@ -1,4 +1,4 @@
 #pragma once
 #include "grid.h"
 
-void update(Grid& grid);
+void update(Grid& current, Grid& next);
