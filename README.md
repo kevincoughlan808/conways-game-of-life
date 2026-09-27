@@ -34,3 +34,18 @@ Component diagram:
 │  │  (SFML)  │     │ (pause/step/draw)│  │
 │  └──────────┘     └──────────────────┘  │
 └─────────────────────────────────────────┘
+
+What it is?
+A cellular automota or Conway's Game of Life implemented in C++ with SFML rendering.
+
+Dependencies:
+SFML 3
+Cmake 3.14+
+C++17
+
+How to build:
+```
+git clone <https://github.com/kevincoughlan808/conways-game-of-life>
+cmake -S . -B build
+cmake --build build
+```
