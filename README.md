@@ -1,22 +1,15 @@
 # conways-game-of-life
 Capstone project of my C++ 100 Days of Code: A cellular automata or Conway's game of life simulation. 
 
-What I'm building:
-A cellular automoton or Conway's game of life
+
+What it is?
+A cellular automota or Conway's Game of Life implemented in C++ with SFML rendering.
 
 The rules:
 1) Any live cell with 2 or 3 live neighbours survives
 2) Any dead cells with exactly 3 live neighbours becomes alive
 3) All other cells die or stay dead
 
-Planned Features:
-- Grid with live/dead cells
-- Correct rule application each generation
-- SFML rendering (each cell = a rectangle)
-- Pause/resume with Space
-- Click to toggle cells alive/dead
-- Speed control
-- GTest coverage, Doxygen, README
 
 Component diagram:
 
@@ -35,13 +28,13 @@ Component diagram:
 │  └──────────┘     └──────────────────┘  │
 └─────────────────────────────────────────┘
 
-What it is?
-A cellular automota or Conway's Game of Life implemented in C++ with SFML rendering.
+
 
 Dependencies:
 SFML 3
 Cmake 3.14+
 C++17
+
 
 How to build:
 ```
@@ -49,3 +42,21 @@ git clone <https://github.com/kevincoughlan808/conways-game-of-life>
 cmake -S . -B build
 cmake --build build
 ```
+
+
+How to run:
+```
+./build/game
+```
+
+
+How to run tests: 
+```
+./build/tests
+```
+
+
+Controls:
+Pause: Space
+click: Left click to toggle a cell alive/dead (pause first to draw patterns)
+
