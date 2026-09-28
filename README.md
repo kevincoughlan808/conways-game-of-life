@@ -28,6 +28,11 @@ Component diagram:
 │  └──────────┘     └──────────────────┘  │
 └─────────────────────────────────────────┘
 
+- Grid: a 2D vector
+- UpdateSystem: applies the rules of the game to the grid
+- SFML Renderer: Renders live cells as white rectangles on a black background
+- InputHandler: Handles Space to pause/resume and left click to toggle cells
+
 
 
 Dependencies:
@@ -57,6 +62,6 @@ How to run tests:
 
 
 Controls:
-Pause: Space
-click: Left click to toggle a cell alive/dead (pause first to draw patterns)
+- Pause: Space
+- click: Left click to toggle a cell alive/dead (pause first to draw patterns)
 
