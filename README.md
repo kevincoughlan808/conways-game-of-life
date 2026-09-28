@@ -11,23 +11,7 @@ The rules:
 3) All other cells die or stay dead
 
 
-Component diagram:
-
-┌─────────────────────────────────────────┐
-│              GameOfLife                 │
-│                                         │
-│  ┌──────────┐     ┌──────────────────┐  │
-│  │   Grid   │────▶│  UpdateSystem    │  │
-│  │ 2D vector│     │ (apply rules)    │  │
-│  └──────────┘     └──────────────────┘  │
-│       │                                  │
-│       ▼                                  │
-│  ┌──────────┐     ┌──────────────────┐  │
-│  │ Renderer │     │   InputHandler   │  │
-│  │  (SFML)  │     │ (pause/step/draw)│  │
-│  └──────────┘     └──────────────────┘  │
-└─────────────────────────────────────────┘
-
+Components:
 - Grid: a 2D vector
 - UpdateSystem: applies the rules of the game to the grid
 - SFML Renderer: Renders live cells as white rectangles on a black background
