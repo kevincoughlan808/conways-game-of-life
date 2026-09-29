@@ -47,5 +47,5 @@ How to run tests:
 
 Controls:
 - Pause: Space
-- click: Left click to toggle a cell alive/dead (pause first to draw patterns)
+- Click: Left click to toggle a cell alive/dead (pause first to draw patterns)
 
